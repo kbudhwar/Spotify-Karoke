@@ -13,12 +13,13 @@ var authCallbackPath = '/auth/spotify/callback';
 // App
 const app = express();
 
-// Use Express Middleware 
+// Express Middleware 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
-    secret: 'random', resave: true, saveUninitialized: true
+  secret: 'random', resave: true, saveUninitialized: true
 })
-)
+);
+
 // Initialize Passport
 app.use(passport.initialize());
 app.use(passport.session());
@@ -33,7 +34,8 @@ passport.deserializeUser(function(user, done) {
 });
 
 // Spotify Strategy
-passport.use( new SpotifyStrategy({
+passport.use(new SpotifyStrategy({
+      // replace with process.env.NAME
       clientID: 'fa075e634b5049babd10a972afab3454',
       clientSecret: 'faf328a0714541e3bda2ff5810ba9f8e',
       callbackURL: 'http://localhost:' + port + authCallbackPath,
