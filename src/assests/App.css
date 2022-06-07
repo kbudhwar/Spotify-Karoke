@@ -1,38 +1,94 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  height: calc(100vh - 90px);
+  background: #131313;
   display: flex;
-  flex-direction: column;
+}
+.outerWrap {
+  height: 100vh;
+  min-height: 100%;
+  background-color: grey;
+}
+.musicControls {
+  background: #282828;
+  text-align: center;
+  height: 90px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+  z-index: 2;
+  position: relative;
+  border-top: 1px solid #040404;
 }
-
-.App-link {
-  color: #61dafb;
+.navBar {
+  width: 228px;
+  height: 100%;
+  background: #040404;
+  padding: 10px 10px 0;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logo {
+  padding: 1rem 0;
+  opacity: 100;
+  max-width: 158px;
+}
+.sideBarList {
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  text-decoration: none;
+}
+.home {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #b3b3b3;
+  list-style-type: none;
+  border-radius: 5px;
+  padding: 0.5rem 0.8rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-family: circular-bold;
+  display: flex;
+  align-items: center;
+}
+.home:hover {
+  color: white;
+  transition: all 0.3s ease-in-out;
+  background: #282828;
+}
+.search {
+  color: #b3b3b3;
+  list-style-type: none;
+  border-radius: 5px;
+  padding: 0.5rem 0.8rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-family: circular-bold;
+  display: flex;
+  align-items: center;
+}
+.search:hover {
+  color: white;
+  transition: all 0.3s ease-in-out;
+  background: #282828;
+}
+.whoAreWe {
+  color: #b3b3b3;
+  list-style-type: none;
+  border-radius: 5px;
+  padding: 0.5rem 0.8rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-family: circular-bold;
+  display: flex;
+  align-items: center;
+}
+.whoAreWe:hover {
+  color: white;
+  transition: all 0.3s ease-in-out;
+  background: #282828;
+}
+.nobull {
+  list-style-type: none;
 }
