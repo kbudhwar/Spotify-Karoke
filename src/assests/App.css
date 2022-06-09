@@ -1,11 +1,12 @@
 .App {
   height: calc(100vh - 90px);
-  background: #131313;
+  background: white;
   display: flex;
+  width: 100%;
 }
 .outerWrap {
+  width: 100%;
   height: 100vh;
-  min-height: 100%;
   background-color: grey;
 }
 .musicControls {
@@ -91,4 +92,22 @@
 }
 .nobull {
   list-style-type: none;
+}
+.Background {
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+video {
+  float: right;
+  width: 100%;
+  height: 100%;
+  /* margin-left: 228px; */
+  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
 }

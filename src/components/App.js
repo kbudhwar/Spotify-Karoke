@@ -1,12 +1,13 @@
-import logo from "./../assests/logo.svg";
 import "./../assests/App.css";
 import Nav from "./Nav";
+import Wallpaper from "./Wallpaper";
 
 function App() {
   return (
     <div className="outerWrap">
       <div className="App">
-        <Nav />
+        {/* <Nav /> */}
+        <Wallpaper />
       </div>
       <div className="musicControls">music controls</div>
     </div>
