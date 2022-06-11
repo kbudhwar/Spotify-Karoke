@@ -1,14 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router, Switch, Route, Routes } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
-import App from './components/App';
-import reportWebVitals from './test/reportWebVitals';
-import './index.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Routes,
+} from "react-router-dom";
+import { createBrowserHistory } from "history";
+import App from "./components/App";
+import reportWebVitals from "./test/reportWebVitals";
+import "./index.css";
 
 const history = createBrowserHistory();
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <Router history={history}>
@@ -17,7 +22,6 @@ root.render(
     </Routes>
   </Router>
 );
-
 
 /*
 root.render(
