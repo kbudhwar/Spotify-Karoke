@@ -4,7 +4,7 @@ const Nav = () => {
   return (
     <div className="navBar">
       <div className="logo">
-        <svg viewBox="0 0 1134 340" class="spotify-logo--text">
+        <svg viewBox="0 0 1134 340" className="spotify-logo--text">
           <title>spotify</title>
           <path
             fill="white"
@@ -13,10 +13,10 @@ const Nav = () => {
         </svg>
       </div>
       <div className="sideBarList">
-        <ul class="nobull">
-          <li class="home"> Home</li>
-          <li class="search"> Search</li>
-          <li class="whoAreWe"> Who are we</li>
+        <ul className="nobull">
+          <li className="home"> Home</li>
+          <li className="search"> Search</li>
+          <li className="whoAreWe"> Who are we</li>
         </ul>
       </div>
     </div>

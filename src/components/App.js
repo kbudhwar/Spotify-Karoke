@@ -8,6 +8,7 @@ function App() {
     <div className="outerWrap">
       <div className="App">
         {/* <Nav /> */}
+        <Nav />
         <Header />
         <Wallpaper />
       </div>
