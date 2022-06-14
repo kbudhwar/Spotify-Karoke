@@ -5,6 +5,7 @@ import { createBrowserHistory } from "history";
 import App from "./components/App";
 import reportWebVitals from "./test/reportWebVitals";
 import "./index.css";
+import Wallpaper from "./components/Wallpaper";
 
 const history = createBrowserHistory();
 
@@ -13,7 +14,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Router history={history}>
     <Routes>
-      <Route exact path="/" element={<App />}></Route>
+      <Route exact path="/" element={<Wallpaper />}></Route>
     </Routes>
   </Router>
 );

@@ -1,0 +1,36 @@
+h1,
+p {
+  font-family: Lato;
+}
+
+.main {
+  background-color: rgb(250, 255, 255, 0.625);
+  border-radius: 10px;
+}
+.title {
+  margin: 0;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(-50%);
+}
+.font-link {
+  font-family: "Nunito", sans-serif;
+}
+.header {
+  margin: 0;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(-50%);
+}
+
+.btns {
+  float: right;
+  margin: 10px 10px;
+  border-radius: 10%;
+}
