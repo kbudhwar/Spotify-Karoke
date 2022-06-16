@@ -4,12 +4,12 @@ const bodyParser = require("body-parser");
 const passport = require("passport");
 const cors = require("cors");
 const SpotifyStrategy = require("passport-spotify").Strategy;
-const { root, spotify, scopes } = require("./spotify");
+const { spotify, scopes, router } = require("./spotify");
 const port = 8000 || process.env.PORT;
 require("dotenv").config();
-const mongodb = require("./mongoose");
 
 // Constants
+const root = "http://localhost:3000";
 const authCallbackPath = "/auth/spotify/callback";
 const corsOptions = {
   origin: root,
@@ -30,6 +30,8 @@ app.use(
   })
 );
 app.use(cors(corsOptions));
+app.use("/spotify", router);
+
 // Add Access Control Allow Origin headers
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -49,7 +51,6 @@ app.use(passport.session());
 passport.serializeUser(function (user, done) {
   done(null, user);
 });
-
 passport.deserializeUser(function (user, done) {
   done(null, user);
 });
@@ -76,9 +77,7 @@ passport.use(
   )
 );
 
-// Authenticate spotify user. First redirects to spotify.com
-// If authentication works/fails, redirects to home (through
-// callback). Access token is recieved if auth iis successful
+// Authenticate spotify user and retrieve access token
 app.get(
   "/auth/spotify",
   passport.authenticate("spotify", {
@@ -93,25 +92,13 @@ app.get(
 app.get(
   authCallbackPath,
   passport.authenticate("spotify", {
-    successRedirect: root,
+    successRedirect: root + "/in",
     failureRedirect: root,
   })
 );
 
 app.get("/api", (req, res) => {
   res.json("Hello");
-});
-
-app.get("/me", (req, res) => {
-  console.log(spotify.getAccessToken());
-  spotify.getMe().then((user) => {
-    console.log(user);
-    mongodb.addPlayer({
-      userid: user.body.id,
-      username: user.body.display_name,
-      email: user.body.email,
-    });
-  });
 });
 
 // Listen

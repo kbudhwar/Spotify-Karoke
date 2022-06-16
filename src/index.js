@@ -2,10 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { createBrowserHistory } from "history";
-import App from "./components/App";
 import reportWebVitals from "./test/reportWebVitals";
-import "./index.css";
+import App from "./components/App";
 import Wallpaper from "./components/Wallpaper";
+import Homepage from "./components/Homepage";
+import "./index.css";
 
 const history = createBrowserHistory();
 
@@ -15,6 +16,7 @@ root.render(
   <Router history={history}>
     <Routes>
       <Route exact path="/" element={<Wallpaper />}></Route>
+      <Route exact path="/in" element={<Homepage />}></Route>
     </Routes>
   </Router>
 );
