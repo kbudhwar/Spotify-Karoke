@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
+//import { Carousel } from "react-responsive-carousel";
 import { Image } from "semantic-ui-react";
 import Axios from "axios";
 import background from "./../assests/Web-Header-Background-1.svg";
 import "./style.css";
+import "./WithScrollbar.css";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 export default function Homepage() {
   const [playlists, setPlaylists] = useState([]);
@@ -33,6 +36,7 @@ export default function Homepage() {
       await Axios.get("http://localhost:8000/spotify/getPlaylists")
         .then((res) => {
           const playlistsInfo = res.data.playlists;
+          console.log(playlistsInfo);
           let covers = [];
           playlistsInfo.forEach((info, index) => {
             covers[index] = info.images[0].url;
@@ -51,16 +55,10 @@ export default function Homepage() {
   return (
     <div>
       {picture && (
-        <Carousel
-          ssr
-          deviceType="desktop"
-          itemClass="image-item"
-          responsive={responsive}
-        >
+        <Carousel ssr itemClass="image-item" responsive={responsive}>
           {images.map((image) => {
             return (
               <Image
-                key={image}
                 draggable={false}
                 style={{ width: "100%", height: "100%" }}
                 src={image}
@@ -76,17 +74,36 @@ export default function Homepage() {
 // <img src={background} alt="text" />
 
 // {
-//   picture && (
-//     <Carousel ssr itemClass="image-item" responsive={responsive}>
-//       {images.map((image) => {
-//         return (
-//           <Image
-//             draggable={false}
-//             style={{ width: "100%", height: "100%" }}
-//             src={image}
-//           />
-//         );
-//       })}
-//     </Carousel>
-//   )
+//   /* <Image
+//   key={image}
+//   draggable={false}
+//   style={{ width: "100%", height: "100%" }}
+//   src={image}
+// />; */
 // }
+
+// <Carousel
+//   ssr={false}
+//   partialVisbile={false}
+//   deviceType="desktop"
+//   itemClass="slider-image-item"
+//   containerClass="carousel-container-with-scrollbar"
+//   responsive={responsive}
+// >
+//   {images.map((image, index) => {
+//     return (
+//       <div class="image-container increase-size">
+//         <div class="image-container-text">
+//           <p>hi</p>
+//         </div>
+//         <img
+//           draggable={false}
+//           style={{ width: "100%", cursor: "pointer" }}
+//           src={image}
+//           alt="text"
+//           key={index}
+//         />
+//       </div>
+//     );
+//   })}
+// </Carousel>

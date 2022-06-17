@@ -22,6 +22,7 @@
     "react-bootstrap-validation": "^0.1.11",
     "react-dom": "^18.1.0",
     "react-multi-carousel": "^2.8.1",
+    "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.1",
     "react-typewriter-effect": "^1.1.0",
