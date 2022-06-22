@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ParticlesBg from "particles-bg";
-import "./style.css";
+import "../assests/style.css";
 import TypeWriter from "react-typewriter-effect";
 import Header from "./Header";
 

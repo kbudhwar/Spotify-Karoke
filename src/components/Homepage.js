@@ -3,9 +3,8 @@ import Carousel from "react-multi-carousel";
 //import { Carousel } from "react-responsive-carousel";
 import { Image } from "semantic-ui-react";
 import Axios from "axios";
-import background from "./../assests/Web-Header-Background-1.svg";
-import "./style.css";
-import "./WithScrollbar.css";
+import "../assests/style.css";
+import "../assests/WithScrollbar.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 export default function Homepage() {
@@ -36,7 +35,6 @@ export default function Homepage() {
       await Axios.get("http://localhost:8000/spotify/getPlaylists")
         .then((res) => {
           const playlistsInfo = res.data.playlists;
-          console.log(playlistsInfo);
           let covers = [];
           playlistsInfo.forEach((info, index) => {
             covers[index] = info.images[0].url;
@@ -54,11 +52,13 @@ export default function Homepage() {
 
   return (
     <div>
+      <a href="/lyricsDemo"> Lyrics Demo </a>
       {picture && (
         <Carousel ssr itemClass="image-item" responsive={responsive}>
-          {images.map((image) => {
+          {images.map((image, index) => {
             return (
               <Image
+                key={index}
                 draggable={false}
                 style={{ width: "100%", height: "100%" }}
                 src={image}

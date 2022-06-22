@@ -101,7 +101,7 @@ app.get("/api", (req, res) => {
   res.json("Hello");
 });
 
-// Listen
+// Listen - change it to an https server for secure connection
 app.listen(port, function () {
   console.log(`Server started on port ${port}`);
 });
