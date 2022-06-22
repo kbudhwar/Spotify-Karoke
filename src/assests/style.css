@@ -16,6 +16,15 @@ p {
   align-items: center;
   transform: translateX(-50%);
 }
+.title-choose-playlist {
+  margin: 0;
+  position: absolute;
+  top: 8%;
+  left: 5%;
+  justify-content: left;
+  align-items: left;
+  transform: translateX(0%);
+}
 .font-link {
   font-family: "Nunito", sans-serif;
 }
@@ -33,4 +42,10 @@ p {
   float: right;
   margin: 10px 10px;
   border-radius: 10%;
+}
+#__next {
+  padding: 20px;
+}
+.image-item {
+  padding: 20px 0 20px 20px;
 }
