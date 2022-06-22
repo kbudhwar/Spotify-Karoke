@@ -16,6 +16,15 @@ p {
   align-items: center;
   transform: translateX(-50%);
 }
+.title-choose-playlist {
+  margin: 0;
+  position: absolute;
+  top: 8%;
+  left: 5%;
+  justify-content: left;
+  align-items: left;
+  transform: translateX(0%);
+}
 .font-link {
   font-family: "Nunito", sans-serif;
 }

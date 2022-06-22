@@ -34,5 +34,3 @@ function LyricsDemo() {
 }
 
 export default LyricsDemo;
-
-// https://www.youtube.com/watch?v=Xcet6msf3eE&t=3096s
