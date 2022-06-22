@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import ParticlesBg from "particles-bg";
 import "../assests/style.css";
 import TypeWriter from "react-typewriter-effect";
-import Header from "./Header";
+import Homepage from "./Homepage";
 
-class Wallpaper extends Component {
+class Begin extends Component {
   constructor() {
     super();
     this.state = {
@@ -16,24 +16,24 @@ class Wallpaper extends Component {
     return (
       <div>
         <ParticlesBg num={100} type="circle" bg={true} />
-        <div className="title">
+        <div className="title-choose-playlist">
           <TypeWriter
             textStyle={{
               fontFamily: "Nunito",
               color: "#ffffff",
-              fontWeight: 1000,
-              fontSize: "4em",
+              fontWeight: 100,
+              fontSize: "2em",
             }}
             startDelay={100}
             cursorColor="white"
-            text="Welcome to Name!"
+            text="To begin choose a playlist below..."
             typeSpeed={50}
           />
         </div>
-        <Header />
+        {/* <Homepage /> */}
       </div>
     );
   }
 }
 
-export default Wallpaper;
+export default Begin;
