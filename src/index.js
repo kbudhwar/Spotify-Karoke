@@ -5,7 +5,7 @@ import { createBrowserHistory } from "history";
 import reportWebVitals from "./test/reportWebVitals";
 import App from "./components/App";
 import Wallpaper from "./components/Wallpaper";
-import Homepage from "./components/Homepage";
+import Begin from "./components/Begin";
 import "./index.css";
 
 const history = createBrowserHistory();
@@ -16,7 +16,7 @@ root.render(
   <Router history={history}>
     <Routes>
       <Route exact path="/" element={<Wallpaper />}></Route>
-      <Route exact path="/in" element={<Homepage />}></Route>
+      <Route exact path="/in" element={<Begin />}></Route>
     </Routes>
   </Router>
 );

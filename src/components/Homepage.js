@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
+import AliceCarousel from "react-alice-carousel";
 //import { Carousel } from "react-responsive-carousel";
 import { Image } from "semantic-ui-react";
 import Axios from "axios";
@@ -53,21 +54,34 @@ export default function Homepage() {
   console.log(images);
 
   return (
-    <div>
-      {picture && (
-        <Carousel ssr itemClass="image-item" responsive={responsive}>
-          {images.map((image) => {
-            return (
-              <Image
-                draggable={false}
-                style={{ width: "100%", height: "100%" }}
-                src={image}
-              />
-            );
-          })}
-        </Carousel>
-      )}
+    <div className="slider">
+      <AliceCarousel autoPlay autoPlayInterval={3000}>
+        {images.map((image) => {
+          return (
+            <Image
+              draggable={false}
+              style={{ width: "20%", height: "20%" }}
+              src={image}
+            />
+          );
+        })}
+      </AliceCarousel>
     </div>
+    // <div>
+    //   {picture && (
+    //     <Carousel ssr itemClass="image-item" responsive={responsive}>
+    //       {images.map((image) => {
+    //         return (
+    //           <Image
+    //             draggable={false}
+    //             style={{ width: "100%", height: "100%" }}
+    //             src={image}
+    //           />
+    //         );
+    //       })}
+    //     </Carousel>
+    //   )}
+    // </div>
   );
 }
 
