@@ -18,6 +18,7 @@ root.render(
     <Routes>
       <Route exact path="/" element={<Wallpaper />}></Route>
       <Route exact path="/in" element={<Begin />}></Route>
+      <Route exact path="/lyrics" element={<Begin />}></Route>
       <Route exact path="/lyricsDemo" element={<LyricsDemo />}></Route>
     </Routes>
   </Router>

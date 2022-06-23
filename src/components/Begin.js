@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ParticlesBg from "particles-bg";
 import "../assests/style.css";
 import TypeWriter from "react-typewriter-effect";
-import Homepage from "./Homepage";
+import Playlists from "./Playlists";
 
 class Begin extends Component {
   constructor() {
@@ -30,7 +30,7 @@ class Begin extends Component {
             typeSpeed={50}
           />
         </div>
-        {/* <Homepage /> */}
+        <Playlists />
       </div>
     );
   }
