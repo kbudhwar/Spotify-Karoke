@@ -46,6 +46,11 @@ p {
 #__next {
   padding: 20px;
 }
-.image-item {
+image-item {
   padding: 20px 0 20px 20px;
+}
+pre {
+  font-size: 20px;
+  color: white;
+  text-align: center;
 }

@@ -65,7 +65,9 @@ router.get("/getPlaylists", (req, res) => {
       console.log(err);
     });
 });
-
+// router.get("/getTracks", (req, res) => {
+//   console.log(req.body)
+// });
 // try async await to remove the then/catch blocks?
 router.get("/getTestTrack", (req, res) => {
   console.log(req.body);
@@ -100,8 +102,12 @@ router.get("/lyrics", async (req, res) => {
     artist: req.query.artist,
     optimizeQuery: true,
   };
-  const lyrics = await lyricsFinder(req.query.artist, req.query.name);
-  console.log(lyrics);
+  try {
+    const lyrics = await lyricsFinder(req.query.artist, req.query.name);
+    res.send({ lyrics: lyrics });
+  } catch (e) {
+    console.log(e);
+  }
 });
 
 module.exports = { spotify, scopes, router };
