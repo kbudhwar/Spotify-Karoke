@@ -6,25 +6,32 @@ import { useLocation } from "react-router-dom";
 
 export default function LyricsDemo() {
   const [lyrics, setLyrics] = useState("");
+
   const location = useLocation();
   const playlist = location.state.playlists;
   useEffect(() => {
     const getTrack = async () => {
       let name, artist;
-      await Axios.get("http://localhost:8000/spotify/getTestTrack")
+      let tracks = [];
+      await Axios.get("http://localhost:8000/spotify/getPlaylistTracks", {
+        params: {
+          id: playlist.id,
+        },
+      })
         .then((res) => {
           console.log(res.data);
-          artist = res.data.artist;
-          name = res.data.name;
+          tracks = res.data;
         })
         .catch((err) => console.log(err));
+      let x = Math.floor(Math.random() * 100);
+      artist = tracks.tracks[x].track.artists[0].name;
+      name = tracks.tracks[x].track.name;
       await Axios.get("http://localhost:8000/spotify/lyrics", {
         params: {
           name: name,
           artist: artist,
         },
       }).then((res) => {
-        console.log("here");
         setLyrics(res.data.lyrics);
       });
     };
