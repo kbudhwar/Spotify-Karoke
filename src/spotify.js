@@ -67,7 +67,6 @@ router.get("/getPlaylists", (req, res) => {
 });
 router.get("/getPlaylistTracks", (req, res) => {
   console.log(req.body);
-  console.log("khushi");
   spotify
     .getPlaylistTracks(req.query.id)
     .then((data) => {
@@ -78,32 +77,6 @@ router.get("/getPlaylistTracks", (req, res) => {
       console.log(err);
     });
 });
-// try async await to remove the then/catch blocks?
-// router.get("/getTestTrack", (req, res) => {
-//   console.log(req.body);
-//   spotify
-//     .getTrack("1pHn1ojEoxuqL2kelfdbpv")
-//     .then((track) => {
-//       //console.log(track.body);
-//       const name = track.body.name;
-//       const artistId = track.body.artists[0].id;
-//       spotify
-//         .getArtist(artistId)
-//         .then((artistInfo) => {
-//           //console.log(artistInfo.body);
-//           res.send({
-//             name: name,
-//             artist: artistInfo.body.name,
-//           });
-//         })
-//         .catch((err) => {
-//           console.log(err);
-//         });
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// });
 
 router.get("/lyrics", async (req, res) => {
   const options = {

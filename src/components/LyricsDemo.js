@@ -28,8 +28,10 @@ export default function LyricsDemo() {
         .catch((err) => console.log(err));
 
       let x = Math.floor(Math.random() * 100);
-      artist = tracks.tracks[x].track.artists[0].name;
-      name = tracks.tracks[x].track.name;
+
+      artist = tracks.tracks.items[x].track.artists[0].name;
+      console.log(artist);
+      name = tracks.tracks.items[x].track.name;
       setArtist(artist);
       setName(name);
 
@@ -47,10 +49,10 @@ export default function LyricsDemo() {
   return (
     <div>
       <ParticlesBg num={100} type="circle" bg={true} />
-      <attributes>
+      <div className="attributes">
         {namePrint}
         {" by"} {artistPrint}
-      </attributes>
+      </div>
       <pre>{lyrics}</pre>
     </div>
   );
