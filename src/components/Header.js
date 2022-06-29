@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Navbar } from "react-bootstrap";
 import Axios from "axios";
-import "../components/style.css";
+import "./../assests/style.css";
 
 function Header() {
   const [loggedIn, setLoggedIn] = useState(false);

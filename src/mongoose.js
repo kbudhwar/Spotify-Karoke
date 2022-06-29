@@ -37,3 +37,5 @@ const addPlayer = async (req) => {
 };
 
 exports.addPlayer = addPlayer;
+
+// module.exports = Player && module.exports.addPlayer() =
