@@ -44,4 +44,10 @@ input[type="range"]:focus::-webkit-slider-runnable-track {
 .slider-image-item {
   padding: 20px 0 20px 20px;
 }
-                   
+.row {
+  float: left;
+  width: 20%;
+  justify-content: center;
+  margin-top: 15%;
+  margin-left: 1%;
+}

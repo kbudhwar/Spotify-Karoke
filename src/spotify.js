@@ -65,28 +65,13 @@ router.get("/getPlaylists", (req, res) => {
       console.log(err);
     });
 });
-
-// try async await to remove the then/catch blocks?
-router.get("/getTestTrack", (req, res) => {
+router.get("/getPlaylistTracks", (req, res) => {
   console.log(req.body);
   spotify
-    .getTrack("1pHn1ojEoxuqL2kelfdbpv")
-    .then((track) => {
-      //console.log(track.body);
-      const name = track.body.name;
-      const artistId = track.body.artists[0].id;
-      spotify
-        .getArtist(artistId)
-        .then((artistInfo) => {
-          //console.log(artistInfo.body);
-          res.send({
-            name: name,
-            artist: artistInfo.body.name,
-          });
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+    .getPlaylistTracks(req.query.id)
+    .then((data) => {
+      console.log("playlisttrack: ", data.body.items);
+      res.send({ tracks: data.body });
     })
     .catch((err) => {
       console.log(err);
@@ -100,8 +85,12 @@ router.get("/lyrics", async (req, res) => {
     artist: req.query.artist,
     optimizeQuery: true,
   };
-  const lyrics = await lyricsFinder(req.query.artist, req.query.name);
-  console.log(lyrics);
+  try {
+    const lyrics = await lyricsFinder(req.query.artist, req.query.name);
+    res.send({ lyrics: lyrics });
+  } catch (e) {
+    console.log(e);
+  }
 });
 
 module.exports = { spotify, scopes, router };

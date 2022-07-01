@@ -1,18 +1,39 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
-import background from "./../assests/Web-Header-Background-1.svg";
+import ParticlesBg from "particles-bg";
+import "../assests/lyrics.css";
+import { useLocation } from "react-router-dom";
 
-function LyricsDemo() {
+export default function LyricsDemo() {
+  const [lyrics, setLyrics] = useState("");
+  const [artistPrint, setArtist] = useState("");
+  const [namePrint, setName] = useState("");
+
+  const location = useLocation();
+  const playlist = location.state.playlists;
+  let name = "";
+  let artist = "";
   useEffect(() => {
     const getTrack = async () => {
-      let name, artist;
-      await Axios.get("http://localhost:8000/spotify/getTestTrack")
+      let tracks = [];
+      await Axios.get("http://localhost:8000/spotify/getPlaylistTracks", {
+        params: {
+          id: playlist.id,
+        },
+      })
         .then((res) => {
           console.log(res.data);
-          artist = res.data.artist;
-          name = res.data.name;
+          tracks = res.data;
         })
         .catch((err) => console.log(err));
+
+      let x = Math.floor(Math.random() * 100);
+
+      artist = tracks.tracks.items[x].track.artists[0].name;
+      console.log(artist);
+      name = tracks.tracks.items[x].track.name;
+      setArtist(artist);
+      setName(name);
 
       await Axios.get("http://localhost:8000/spotify/lyrics", {
         params: {
@@ -20,17 +41,19 @@ function LyricsDemo() {
           artist: artist,
         },
       }).then((res) => {
-        console.log("gotti");
+        setLyrics(res.data.lyrics);
       });
     };
     getTrack();
   }, []);
-
   return (
     <div>
-      <img src={background} alt="text" />
+      <ParticlesBg num={100} type="circle" bg={true} />
+      <div className="attributes">
+        {namePrint}
+        {" by"} {artistPrint}
+      </div>
+      <pre>{lyrics}</pre>
     </div>
   );
 }
-
-export default LyricsDemo;
