@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Image } from "semantic-ui-react";
 import Axios from "axios";
-import "../assests/playlist.css";
-import "../assests/WithScrollbar.css";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useNavigate } from "react-router-dom";
+import "../assests/playlist.css";
 
 function PlaylistsItems({ d }) {
   const [checked, setChecked] = useState(false);
@@ -15,9 +13,7 @@ function PlaylistsItems({ d }) {
         setChecked(!checked);
       }}
     >
-      {checked
-        ? navigate("/lyrics", { state: { playlists: d } })
-        : console.log("false")}
+      {checked && navigate("/lyrics", { state: { playlists: d } })}
       <div className="gallery">
         <Image draggable={false} src={d.images[0].url} />
       </div>
@@ -44,9 +40,9 @@ export default function Playlists() {
   }, []);
   return (
     <ul>
-      {playlists.map((d) => {
+      {playlists.map((d, index) => {
         return (
-          <div>
+          <div key={index}>
             <PlaylistsItems d={d} />
           </div>
         );

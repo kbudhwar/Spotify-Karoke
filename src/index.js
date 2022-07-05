@@ -6,7 +6,7 @@ import reportWebVitals from "./test/reportWebVitals";
 import Wallpaper from "./components/Wallpaper";
 import LyricsDemo from "./components/LyricsDemo";
 import Begin from "./components/Begin";
-import "./index.css";
+import "./assests/index.css";
 
 const history = createBrowserHistory();
 

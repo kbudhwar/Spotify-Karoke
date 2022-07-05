@@ -60,14 +60,15 @@ passport.use(
   new SpotifyStrategy(
     {
       // replace with process.env.NAME
-      clientID: "fa075e634b5049babd10a972afab3454",
-      clientSecret: "faf328a0714541e3bda2ff5810ba9f8e",
+      clientID: "940df94845c24a0f9dd21494900c2afd",
+      clientSecret: "bc66dac4c7134b278b4e371742163be2",
       callbackURL: "http://localhost:" + port + authCallbackPath,
     },
     function (accessToken, refreshToken, expires_in, profile, done) {
       spotify.setAccessToken(`${accessToken}`);
       spotify.setRefreshToken(`${refreshToken}`);
-      //console.log("accesstoken", accessToken);
+      console.log("accesstoken", accessToken);
+      console.log("expiry:", expires_in);
       process.nextTick(function () {
         // Returns user's spotify profile
         // Can assocaite spotify account with user record in db
@@ -96,10 +97,6 @@ app.get(
     failureRedirect: root,
   })
 );
-
-app.get("/api", (req, res) => {
-  res.json("Hello");
-});
 
 // Listen - change it to an https server for secure connection
 app.listen(port, function () {

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import ParticlesBg from "particles-bg";
-import "../assests/style.css";
 import TypeWriter from "react-typewriter-effect";
 import Playlists from "./Playlists";
+import "../assests/style.css";
 
 class Begin extends Component {
   constructor() {

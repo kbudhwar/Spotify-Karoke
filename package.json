@@ -31,6 +31,7 @@
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.1",
+    "react-spotify-web-playback": "^0.10.0",
     "react-typewriter-effect": "^1.1.0",
     "semantic-ui-react": "^2.1.3",
     "spotify-web-api-node": "^5.0.2",

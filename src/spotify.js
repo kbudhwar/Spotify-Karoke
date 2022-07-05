@@ -8,8 +8,8 @@ const geniusApiKey =
   "WYZyu4yOcnVPAg-gj15PrdOhunJhBvxRVG1lx-P8mvVVkfbu5KD0_J7c47lozuQX";
 
 const spotify = new SpotifyWebApi({
-  clientId: "fa075e634b5049babd10a972afab3454",
-  clientSecret: "faf328a0714541e3bda2ff5810ba9f8e",
+  clientId: "940df94845c24a0f9dd21494900c2afd",
+  clientSecret: "bc66dac4c7134b278b4e371742163be2",
   redirectUri: "http://localhost:3000",
 });
 
@@ -34,6 +34,12 @@ const scopes = [
   "user-follow-read",
   "user-follow-modify",
 ];
+
+// Retrieves Access Token for User
+router.get("/getToken", (req, res) => {
+  const accessToken = spotify.getAccessToken();
+  res.send({ accessToken: accessToken });
+});
 
 // Saves logged-in user info to mongodb
 router.get("/me", (req, res) => {
@@ -71,7 +77,7 @@ router.get("/getPlaylistTracks", (req, res) => {
     .getPlaylistTracks(req.query.id)
     .then((data) => {
       console.log("playlisttrack: ", data.body.items);
-      res.send({ tracks: data.body });
+      res.send({ tracks: data.body.items });
     })
     .catch((err) => {
       console.log(err);
