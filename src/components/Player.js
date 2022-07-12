@@ -25,7 +25,17 @@ export default function Player({ trackUri }) {
     <SpotifyPlayer
       token={token}
       showSaveIcon
+      magnifySliderOnHover
       uris={trackUri ? [trackUri] : []}
+      styles={{
+        activeColor: "#fff",
+        bgColor: "#333",
+        color: "#fff",
+        loaderColor: "#fff",
+        sliderColor: "#1cb954",
+        trackArtistColor: "#ccc",
+        trackNameColor: "#fff",
+      }}
     />
   );
 }
