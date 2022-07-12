@@ -8,12 +8,9 @@ import "../assests/lyrics.css";
 export default function LyricsDemo() {
   const [lyrics, setLyrics] = useState(undefined);
   const [track, setTrack] = useState(undefined);
-  //const [artistPrint, setArtist] = useState("");
-  //const [namePrint, setName] = useState("");
 
   const location = useLocation();
   const playlist = location.state.playlists;
-
   useEffect(() => {
     if (track !== undefined) {
       const getLyrics = async () => {
@@ -23,8 +20,16 @@ export default function LyricsDemo() {
             artist: track.artists[0].name,
           },
         }).then((res) => {
-          console.log(res.data.lyrics);
-          setLyrics(res.data.lyrics);
+          let verses = [];
+          verses = res.data.lyrics.split("\n\n");
+          while (true) {
+            let x = Math.floor(Math.random() * verses.length);
+            let total = verses[x].split("\n").length;
+            if (total >= 4) {
+              setLyrics(verses[x]);
+              break;
+            }
+          }
         });
       };
       getLyrics();
@@ -37,13 +42,11 @@ export default function LyricsDemo() {
           },
         })
           .then((res) => {
-            console.log(res.data.tracks);
             tracks = res.data.tracks;
           })
           .catch((err) => console.log(err));
 
         let x = Math.floor(Math.random() * 100);
-        console.log(tracks[x].track);
         setTrack(tracks[x].track);
       };
       getTrack();
