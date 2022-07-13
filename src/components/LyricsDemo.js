@@ -19,6 +19,19 @@ export default function LyricsDemo() {
   useEffect(() => {
     if (track !== undefined) {
       const getLyrics = async () => {
+        const artist = track.artists[0].name;
+        const trackName = track.name;
+
+        await Axios.get(
+          `https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/chart.tracks.get?page=1&page_size=10&country=us&f_has_lyrics=1&apikey=${process.env.MM_KEY}`
+        )
+          .then((res) => {
+            console.log(res.data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+        /*
         await Axios.get("http://localhost:8000/spotify/lyrics", {
           params: {
             name: track.name,
@@ -27,7 +40,8 @@ export default function LyricsDemo() {
         }).then((res) => {
           console.log(res.data.lyrics);
           setLyrics(res.data.lyrics);
-          /*
+
+          //////////////////////////////////////////////////
           let verses = [];
           verses = res.data.lyrics.split("\n\n");
           console.log(verses);
@@ -39,8 +53,9 @@ export default function LyricsDemo() {
               break;
             }
           }
-          */
+          
         });
+        */
       };
       getLyrics();
     } else {
@@ -75,7 +90,7 @@ export default function LyricsDemo() {
   return (
     <div>
       <ParticlesBg num={100} type="circle" bg={true} />
-      {lyrics && (
+      {lyrics && verses && (
         <>
           <div className="attributes">
             {track.name} {" by"} {track.artists[0].name}

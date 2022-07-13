@@ -8,7 +8,7 @@ const geniusApiKey =
   "WYZyu4yOcnVPAg-gj15PrdOhunJhBvxRVG1lx-P8mvVVkfbu5KD0_J7c47lozuQX";
 
 const spotify = new SpotifyWebApi({
-  clientId: "940df94845c24a0f9dd21494900c2afd",
+  clientID: "940df94845c24a0f9dd21494900c2afd",
   clientSecret: "bc66dac4c7134b278b4e371742163be2",
   redirectUri: "http://localhost:3000",
 });
