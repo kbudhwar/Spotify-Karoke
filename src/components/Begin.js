@@ -15,7 +15,8 @@ class Begin extends Component {
   render() {
     return (
       <div>
-        <ParticlesBg num={100} type="circle" bg={true} />
+          <Playlists />
+        <div className="gradient" />
         <div className="title-choose-playlist">
           <TypeWriter
             textStyle={{
@@ -30,7 +31,6 @@ class Begin extends Component {
             typeSpeed={50}
           />
         </div>
-        <Playlists />
       </div>
     );
   }

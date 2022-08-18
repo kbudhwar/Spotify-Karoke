@@ -49,3 +49,24 @@ p {
 image-item {
   padding: 20px 0 20px 20px;
 }
+
+.gradient{
+  background: linear-gradient(-45deg,#cc99c9, #9ec1cf,#9ee09e,  #Feb144, #ff6663);
+  min-height: calc(100vh - 60px);
+  background-size: 400% 400%;
+  z-index: -5;
+  max-width: 96%;
+  margin: 2%;
+  animation: gradient 25s ease infinite;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

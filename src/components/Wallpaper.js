@@ -15,7 +15,7 @@ class Wallpaper extends Component {
   render() {
     return (
       <div>
-        <ParticlesBg num={100} type="circle" bg={true} />
+        <div className="gradient"/>
         <div className="title">
           <TypeWriter
             textStyle={{
@@ -26,7 +26,7 @@ class Wallpaper extends Component {
             }}
             startDelay={100}
             cursorColor="white"
-            text="Welcome to Name!"
+            text="Welcome to Heardle!"
             typeSpeed={50}
           />
         </div>

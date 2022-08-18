@@ -1,6 +1,7 @@
 * {
   color: white;
   text-align: center;
+  z-index: 100;
 }
 pre {
   font-size: 20px;
